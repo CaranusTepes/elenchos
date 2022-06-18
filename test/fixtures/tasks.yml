@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  due: 2022-06-14
+  details: MyText
+  fin: false
+  category: one
+
+two:
+  title: MyString
+  due: 2022-06-14
+  details: MyText
+  fin: false
+  category: two

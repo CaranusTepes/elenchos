@@ -1,0 +1,38 @@
+<div class="whole">
+  <% if user_signed_in? %>
+    <div class="profile">
+        <div class="picture"> <%= image_tag "e.png", class: "icon"%></div>
+        <div class="name"> Janssen Radh Yumang</div>
+        <div class="email"><%= current_user.email %></div>
+        <div class="use">
+          <div class="setting"> Edit </div>
+          <div class="exit"><%= link_to "Sign Out", destroy_user_session_path, method: :get %></div>
+        </div>
+        <div class="progress"></div>
+        <div class="category"></div>
+    </div>
+    <div class="due">
+    <% @tasks.each do |tasks| %>
+      <tr>
+        <td><%= tasks.title   %></td>
+        <td><%= tasks.details %></td>
+        <td><%= tasks.due %></td>
+        <td><%= tasks.category_id %></td>
+        <td><%= "No!" if tasks.fin == false %><%= "Yes!" if tasks.fin == true %> </td> <%# find a better way to use if else, maybe use a def end %>
+      </tr>
+    <% end %>
+      <div class="today">
+        <div class="click"></div> 
+        <div class="title"></div>
+        <div class="date"></div>
+        <div class="assign"></div>
+      </div>
+      <div class="upcoming">
+        <div class="click"></div>
+        <div class="title"></div>
+        <div class="date"></div>
+        <div class="assign"></div>
+      </div>
+    </div>
+  <% end %>
+</div>

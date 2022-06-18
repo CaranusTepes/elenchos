@@ -1,0 +1,26 @@
+<h1> LIST </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Details</th>
+      <th>Due Date</th>
+      <th>Category ID</th>
+      <th>Is it done?</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  
+    <% @tasks.each do |tasks| %>
+      <tr>
+        <td><%= tasks.title   %></td>
+        <td><%= tasks.details %></td>
+        <td><%= tasks.due %></td>
+        <td><%= tasks.category_id %></td>
+        <td><%= "No!" if tasks.fin == false %><%= "Yes!" if tasks.fin == true %> </td> <%# find a better way to use if else, maybe use a def end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

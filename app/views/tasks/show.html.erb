@@ -1,0 +1,14 @@
+
+  <div class="show-container">
+    <div class="headers">
+      <div class="header-title"> <%= @task.title %> </div>
+      <div class="header-author"> <%= @task.details %> </div>
+      <div class="header-created"> <%= @task.created_at %> </div>
+    </div>
+    <div class="body">
+      <div class="body-buttons">
+        <div class="edit-icon"><%= link_to 'Edit'.html_safe, edit_task_path(@task) %></div>
+        <div class="delete-icon"><%= link_to 'Delete'.html_safe, @task, method: :delete %></div>
+      </div>
+    </div>
+  </div>

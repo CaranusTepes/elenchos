@@ -1,0 +1,28 @@
+
+  <div class="show-container">
+    <div class="headers">
+      <div class="header-title"> <%= @category.title %> </div>
+      <div class="header-author"> <%= @category.details %> </div>
+      <div class="header-created"> <%= @category.created_at %> </div>
+      <% @tasks.each do |tasks| %>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+          </tr> 
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= tasks.title %></td>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+    <div class="body">
+      <div class="body-buttons">
+        <div class="edit-icon"><%= link_to 'Edit'.html_safe, edit_category_path(@category) %></div>
+        <div class="delete-icon"><%= link_to 'Delete'.html_safe, @category, method: :delete %></div>
+      </div>
+    </div>
+  </div>

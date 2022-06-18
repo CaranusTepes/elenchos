@@ -1,0 +1,119 @@
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+body {
+  background-color: azure;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  margin: auto;
+  top: 30%;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+// Login Page CSS
+
+.icon {
+  height: 50px;
+  width: 50px;
+}
+
+.header {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2C3539;
+  margin: 24px 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.email {
+  padding: 0px 15px;
+}
+
+.emailLabel {
+  font-size: 13px;
+}
+
+.emailInput {
+  border: none;
+  border-bottom: 1px solid black;
+  background-color: inherit;
+}
+.password {
+  padding: 5px 15px;
+}
+
+.passLabel {
+  font-size: 13px;
+}
+
+.passInput {
+  border: none;
+  border-bottom: 1px solid black;
+  background-color: inherit;
+}
+
+.submit {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  background-color: black;
+}
+
+.links {
+  font-size: 15px;
+}
+
+// Home Page design
+
+// <% if user_signed_in? %>
+//   <p> Hello <%= current_user.email %> !</p>
+//   <p> YOU ARE IN </p>
+//   <%= link_to "Sign Out", destroy_user_session_path, method: :get %>
+// <% end %>
+
+.whole { 
+  display: flex;
+  flex-direction: row;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: coral;
+  width: 30%;
+}
+
+.use {
+  display: flex;
+  flex-direction: row;
+}
+
+.due {
+  display: flex;
+  flex-direction: column;
+  background-color: pink;
+  width: 70%;
+}
