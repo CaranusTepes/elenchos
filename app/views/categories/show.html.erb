@@ -1,28 +1,23 @@
-
-  <div class="show-container">
-    <div class="headers">
-      <div class="header-title"> <%= @category.title %> </div>
-      <div class="header-author"> <%= @category.details %> </div>
-      <div class="header-created"> <%= @category.created_at %> </div>
-      <% @tasks.each do |tasks| %>
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-          </tr> 
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= tasks.title %></td>
-          </tr>
-        </tbody>
-      </table>
-      <% end %>
-    </div>
-    <div class="body">
-      <div class="body-buttons">
-        <div class="edit-icon"><%= link_to 'Edit'.html_safe, edit_category_path(@category) %></div>
-        <div class="delete-icon"><%= link_to 'Delete'.html_safe, @category, method: :delete %></div>
+<div class="category-show-id">
+    <div class="category-show-top">
+      <div class="category-show-left"> <%= current_user.email %> </div>
+      <div class="category-show-middle"> <%= @category.title %> </div>
+      <div class="category-show-right">
+        <%= link_to image_tag "setting.png", class: "buttons"%>
+        <%= link_to image_tag("logout.png", :class => "buttons"), destroy_user_session_path, method: :get %>
       </div>
     </div>
-  </div>
+    <div class="category-id-bottom">
+      <div class="category-show-list">
+        <div class="catId-details"> <%= @category.details %> </div>
+        <% @tasks.each do |tasks| %>
+        <div class="category-id-tasks">
+          <div class="catId-task-title"> <%= tasks.title %> </div>
+          <div class="catId-task-due"> <%= tasks.due %> </div>
+          <div class="catId-task-fin"> <%= tasks.fin %> </div>
+        </div>
+        <% end %>
+        <div class="catID-created"> <%= @category.created_at %> </div>
+      </div>
+    </div>
+</div>

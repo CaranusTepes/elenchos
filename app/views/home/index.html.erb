@@ -1,37 +1,50 @@
-<div class="whole">
+<div class="home">
   <% if user_signed_in? %>
-    <div class="profile">
-        <div class="picture"> <%= image_tag "e.png", class: "icon"%></div>
-        <div class="name"> Janssen Radh Yumang</div>
-        <div class="email"><%= current_user.email %></div>
-        <div class="use">
-          <div class="setting"> Edit </div>
-          <div class="exit"><%= link_to "Sign Out", destroy_user_session_path, method: :get %></div>
-        </div>
-        <div class="progress"></div>
-        <div class="category"></div>
-    </div>
-    <div class="due">
-    <% @tasks.each do |tasks| %>
-      <tr>
-        <td><%= tasks.title   %></td>
-        <td><%= tasks.details %></td>
-        <td><%= tasks.due %></td>
-        <td><%= tasks.category_id %></td>
-        <td><%= "No!" if tasks.fin == false %><%= "Yes!" if tasks.fin == true %> </td> <%# find a better way to use if else, maybe use a def end %>
-      </tr>
-    <% end %>
-      <div class="today">
-        <div class="click"></div> 
-        <div class="title"></div>
-        <div class="date"></div>
-        <div class="assign"></div>
+    <div class="home-left">
+      <div class="left-header"> <%= current_user.email %> </div>
+      <div class="left-important">
+        <div class="today">Today</div>
+        <div class="upcoming">Upcoming</div>
+        <div class="finished">Finished</div>
+        <div class="deleted">Deleted</div>
       </div>
-      <div class="upcoming">
-        <div class="click"></div>
-        <div class="title"></div>
-        <div class="date"></div>
-        <div class="assign"></div>
+      <div class="left-categories">
+          <a href="/categories"><div class="home-categories-list-title">All categories</div></a>
+        <% @categories.each do |categories| %>
+          <div>
+            <div class="home-categories-list"><%= categories.title %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="home-middle">
+      <div class="middle-header">
+        <%= link_to image_tag "setting.png", class: "buttons"%>
+        <%= link_to image_tag("logout.png", :class => "buttons"), destroy_user_session_path, method: :get %>
+      </div>
+      <div class="middle-today"> 
+        <div class="middle-title">Today Tasks</div>
+        <div class="middle-list">
+          <% @tasks.each do |tasks| %>
+          <% if tasks.due == Date.current %>
+              <div><%= tasks.title %></div>
+              <div><%= tasks.details %></div>
+              <div><%= tasks.due %></div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="middle-upcoming">
+        <div class="middle-title">Upcoming Tasks</div>
+        <div class="middle-list">
+        <% @tasks.each do |tasks| %>
+          <% if tasks.due > Date.current %>
+              <div><%= tasks.title   %></div>
+              <div><%= tasks.details   %></div>
+              <div><%= tasks.due %></div>
+          <% end %>
+        <% end %>
+        </div>
       </div>
     </div>
   <% end %>

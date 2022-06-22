@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
   def index
-    # @tasks = Task.where("user_id = ?", current_user.id )
-    @tasks = Task.where("due = ? AND user_id = ?", Date.today, current_user.id)
+    @tasks = Task.where("user_id = ?", current_user.id )
+    @categories = Category.where("user_id = ?", current_user.id)
+
   end
 
 private

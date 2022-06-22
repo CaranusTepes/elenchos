@@ -1,26 +1,34 @@
-<h1> LIST </h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Details</th>
-      <th>Due Date</th>
-      <th>Category ID</th>
-      <th>Is it done?</th>
-    </tr>
-  </thead>
-
-  <tbody>
-  
-    <% @tasks.each do |tasks| %>
-      <tr>
-        <td><%= tasks.title   %></td>
-        <td><%= tasks.details %></td>
-        <td><%= tasks.due %></td>
-        <td><%= tasks.category_id %></td>
-        <td><%= "No!" if tasks.fin == false %><%= "Yes!" if tasks.fin == true %> </td> <%# find a better way to use if else, maybe use a def end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="task-all">
+    <div class="task-all-top">
+      <div class="task-all-left"> <%= current_user.email %> </div>
+      <div class="task-all-middle"> All Tasks </div>
+      <div class="task-all-right">
+        <%= link_to image_tag "setting.png", class: "buttons"%>
+        <%= link_to image_tag("logout.png", :class => "buttons"), destroy_user_session_path, method: :get %>
+      </div>
+    </div>
+    <div class="task-all-bottom">
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Details</th>
+            <th>Due Date</th>
+            <th>Category ID</th>
+            <th>Is it done?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tasks.each do |tasks| %>
+            <tr>
+              <td><%= tasks.title   %></td>
+              <td><%= tasks.details %></td>
+              <td><%= tasks.due %></td>
+              <td><%= tasks.category_id %></td>
+              <td><%= "No!" if tasks.fin == false %><%= "Yes!" if tasks.fin == true %> </td> <%# find a better way to use if else, maybe use a def end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>

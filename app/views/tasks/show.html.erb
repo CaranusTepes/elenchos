@@ -1,14 +1,22 @@
-
-  <div class="show-container">
-    <div class="headers">
-      <div class="header-title"> <%= @task.title %> </div>
-      <div class="header-author"> <%= @task.details %> </div>
-      <div class="header-created"> <%= @task.created_at %> </div>
-    </div>
-    <div class="body">
-      <div class="body-buttons">
-        <div class="edit-icon"><%= link_to 'Edit'.html_safe, edit_task_path(@task) %></div>
-        <div class="delete-icon"><%= link_to 'Delete'.html_safe, @task, method: :delete %></div>
+<div class="task-id-id">
+    <div class="task-id-top">
+      <div class="task-id-left"> <%= current_user.email %> </div>
+      <div class="task-id-middle"> <%= @task.category_id %> </div>
+      <div class="task-id-right">
+        <%= link_to image_tag "setting.png", class: "buttons"%>
+        <%= link_to image_tag("logout.png", :class => "buttons"), destroy_user_session_path, method: :get %>
       </div>
     </div>
-  </div>
+    <div class="task-id-bottom">
+      <div class="task-id-list">
+        <div class="task-title"> <%= @task.title %> </div>
+        <div class="task-details"> <%= @task.details %> </div>
+        <div class="task-id-parts">
+          <div class="task-due"> <%= @task.due %> </div>
+          <div class="task-created"> <%= @task.created_at %> </div>
+          <div class="task-fin"> <%= @task.fin %> </div>
+        </div>
+
+      </div>
+    </div>
+</div>

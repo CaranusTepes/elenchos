@@ -1,20 +1,22 @@
-<h1> LIST </h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-
-  <tbody>
-  
-    <% @categories.each do |categories| %>
-      <tr>
-        <td><%= categories.title   %></td>
-        <td><%= categories.details %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="category-show">
+  <% if user_signed_in? %>
+    <div class="category-show-top">
+      <div class="category-show-left"> <%= current_user.email %> </div>
+      <div class="category-show-middle"> All Categories </div>
+      <div class="category-show-right">
+        <%= link_to image_tag "setting.png", class: "buttons"%>
+        <%= link_to image_tag("logout.png", :class => "buttons"), destroy_user_session_path, method: :get %>
+      </div>
+    </div>
+    <div class="category-show-bottom">
+      <% @categories.each do |categories| %>
+      <div class="category-show-list">
+        <div class="header-title"> <%= categories.title %> </div>
+        <div class="header-author"> <%= categories.details %> </div>
+        <div class="header-taks-count"> <%=  %> </div>
+        <div class="header-created"> <%= categories.created_at %> </div>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

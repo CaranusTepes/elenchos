@@ -2,6 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap');
 
+ /*
+ *= require_tree .
+ *= require_self
+ */
+@import "login";
+@import "homepage";
+@import "category";
+
 body {
   background-color: #06283D;
 }
@@ -13,152 +21,110 @@ body {
   align-items: center;
   width: 33%;
   position: absolute;
-  margin: auto;
-  top: 30%;
-  left: 30%;
-  right: 30%;
+  margin: 300px auto;
+  left: 0;
+  right: 0;
 }
 
 textarea:focus, input:focus{
   outline: none;
 }
 
-// Login Page CSS
-
-.icon {
-  height: 70px;
-  width: 70px;
-}
-
-.header {
-  font-size: 20px;
-  font-weight: bold;
-  color: #DFF6FF;
-  margin: 10px 0px 10px 0px;
-  font-family: 'Inter', sans-serif;
-}
-
-.email {
-  padding: 10px 15px 0px 15px;
-}
-
-.emailLabel {
-  font-size: 11px;
-  color: #DFF6FF;
-  font-family: 'Inter', sans-serif;
-}
-
-.emailInput {
-  border: none;
-  border-bottom: 1px solid #DFF6FF;
-  background-color: inherit;
-  color: #DFF6FF;
-  font-size: 16px;
-  font-family: 'Work Sans', sans-serif;
-}
-.password {
-  padding: 5px 15px 10px 15px;
-}
-
-.passLabel {
-  font-size: 11px;
-  color: #DFF6FF;
-  font-family: 'Inter', sans-serif;
-}
-
-.passInput {
-  border: none;
-  border-bottom: 1px solid #DFF6FF;
-  background-color: inherit;
-  color: #DFF6FF;
-  font-size: 16px;
-  font-family: 'Work Sans', sans-serif;
-}
-
-.submit {
-  padding: 10px 15px;
+.alerts {
   display: flex;
   justify-content: center;
+  margin: 30px;
 }
 
-.button {
-  width: 100%;
-  height: 35px;
-  border: none;
-  outline: none;
-  border-radius: 7px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #DFF6FF;
-  background-color: #1363DF;
+.alert {
+  text-align: center;
+  background-color: #F8AEAE;
+  color: #A6696E;
+  width: 25%;
+  position: absolute;
+  margin: 30px auto;
+  left: 0;
+  right: 0;
+  border-radius: 10px;
+  border-color: #A6696E;
+  font-weight: bold;
   font-family: 'Inter', sans-serif;
 }
 
-.button:hover {
-  background-color: #47B5FF;
-  color: #DFF6FF;
-  width: 100%;
-  height: 35px;
-  border: none;
-  outline: none;
-  border-radius: 7px;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.links {
+.notice {
   display: flex;
-  justify-content: space-between;
-  width: inherit;
-}
-
-.sup:link, .for:link, .sup:visited, .for:visited {
-  text-decoration: none;
-  color: #DFF6FF;
-  font-size: 11px;
-  font-family: 'Inter', sans-serif;
-}
-
-.sup:hover, .for:hover {
-  text-decoration: none;
-  color: #1363DF;
-  font-family: 'Inter', sans-serif;
-}
-
-// Home Page design
-
-// <% if user_signed_in? %>
-//   <p> Hello <%= current_user.email %> !</p>
-//   <p> YOU ARE IN </p>
-//   <%= link_to "Sign Out", destroy_user_session_path, method: :get %>
-// <% end %>
-
-.whole { 
-  display: flex;
-  flex-direction: row;
-}
-
-.profile {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  background-color: coral;
-  width: 30%;
+  background-color: #D9FAE7;
+  color: #6BAA8B;
+  width: 25%;
+  height: 50px;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  border-radius: 10px;
+  border-color: #6BAA8B;
+  font-weight: bold;
+  font-family: 'Inter', sans-serif;
 }
 
-.use {
+// Show Specific Category
+
+// <div class="body-buttons">
+//   <div class="edit-icon"><%= link_to 'Edit'.html_safe, edit_category_path(@category) %></div>
+//   <div class="delete-icon"><%= link_to 'Delete'.html_safe, @category, method: :delete %></div>
+// </div>
+.category-show-id {
+  color: #DFF6FF;
+}
+
+.category-id-bottom {
+  display: flex;
+  color: #DFF6FF;
+}
+
+.category-id-tasks {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.category-show-list {
+  display: flex;
+  flex-direction: column;
+}
+
+// Show Specific Tasks
+.task-id-id {
+  display: flex;
+  flex-direction: column;
+  color: #DFF6FF;
+}
+
+.task-id-top {
   display: flex;
   flex-direction: row;
 }
 
-.due {
+.task-id-bottom {
   display: flex;
-  flex-direction: column;
-  background-color: pink;
-  width: 70%;
 }
 
+.task-id-list {
+  display: flex;
+  flex-direction: column;
+}
 
-// Show Task Design
+.task-id-parts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+// Show All Tasks
+
+.task-all-top {
+  display: flex;
+  flex-direction: row;
+}
