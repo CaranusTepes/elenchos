@@ -1,12 +1,8 @@
 class HomeController < ApplicationController
   def index
-    @tasks = Task.where("user_id = ?", current_user.id )
-    @categories = Category.where("user_id = ?", current_user.id)
-
+    @tasks = current_user.tasks
+    @categories = current_user.categories
+    @favorites = current_user.tasks.where("favorite = TRUE")
   end
 
-private
-  def set_task
-    @task = Task.find(params[:id])
-  end
 end

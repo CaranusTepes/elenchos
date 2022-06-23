@@ -1,34 +1,25 @@
-<div class="task-all">
-    <div class="task-all-top">
-      <div class="task-all-left"> <%= current_user.email %> </div>
-      <div class="task-all-middle"> All Tasks </div>
-      <div class="task-all-right">
-        <%= link_to image_tag "setting.png", class: "buttons"%>
+<div class="category-show">
+  <% if user_signed_in? %>
+    <div class="category-show-top">
+      <div class="category-show-left">
+      <%= link_to image_tag("back.png", :class => "buttons"), :back %> 
+      <%= link_to image_tag("home.png", :class => "buttons"), "/" %> 
+      </div>
+      <div class="category-show-middle"> All Tasks </div>
+      <div class="category-show-right">
+        <%= link_to image_tag("add.png", :class => "buttons"), new_task_path %>
+        <%= link_to image_tag("setting.png", :class => "buttons") %>
         <%= link_to image_tag("logout.png", :class => "buttons"), destroy_user_session_path, method: :get %>
       </div>
     </div>
-    <div class="task-all-bottom">
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Details</th>
-            <th>Due Date</th>
-            <th>Category ID</th>
-            <th>Is it done?</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @tasks.each do |tasks| %>
-            <tr>
-              <td><%= tasks.title   %></td>
-              <td><%= tasks.details %></td>
-              <td><%= tasks.due %></td>
-              <td><%= tasks.category_id %></td>
-              <td><%= "No!" if tasks.fin == false %><%= "Yes!" if tasks.fin == true %> </td> <%# find a better way to use if else, maybe use a def end %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <div class="category-show-bottom">
+      <% @tasks.each do |tasks| %>
+      <div class="category-show-list">
+        <div class="header-title"> <%= link_to tasks.title, task_path(tasks.id), :class => "header-title-text" %></div>
+        <div class="header-author"> <%= tasks.details %> </div>
+        <div class="header-created-red"> Due on: <%= tasks.due.to_time.strftime('%B %e %Y') %> </div>
+      </div>
+      <% end %>
     </div>
+  <% end %>
 </div>

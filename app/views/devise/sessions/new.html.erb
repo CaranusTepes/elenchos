@@ -1,22 +1,20 @@
-
 <div class="body">
-
   <%= image_tag "e.png", class: "icon"%>
   <h2 class="header">Log in</h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="email">
-      <%= f.label :email, class: "emailLabel" %><br />
-      <%= f.email_field :email, class: "emailInput", autofocus: true, autocomplete: "email" %>
-    </div>
+      <div class="email">
+        <%= f.label :email, class: "emailLabel" %><br />
+        <%= f.email_field :email, class: "emailInput", autofocus: true, autocomplete: "email" %>
+      </div>
 
-    <div class="password">
-      <%= f.label :password, class: "passLabel" %><br />
-      <%= f.password_field :password, class: "passInput", autocomplete: "current-password" %>
-    </div>
+      <div class="password">
+        <%= f.label :password, class: "passLabel" %><br />
+        <%= f.password_field :password, class: "passInput", autocomplete: "current-password" %>
+      </div>
 
-    <div class="submit">
-      <%= f.submit "Submit", class: "button" %>
-    </div>
+      <div class="submit">
+        <%= f.submit "Submit", class: "button" %>
+      </div>
     <% end %>
     <div class="links"> 
       <a href="/users/sign_up" class="sup">Sign up</a>

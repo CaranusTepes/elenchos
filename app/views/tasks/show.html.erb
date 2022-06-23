@@ -1,22 +1,32 @@
-<div class="task-id-id">
-    <div class="task-id-top">
-      <div class="task-id-left"> <%= current_user.email %> </div>
-      <div class="task-id-middle"> <%= @task.category_id %> </div>
-      <div class="task-id-right">
-        <%= link_to image_tag "setting.png", class: "buttons"%>
+<div class="category-show-id">
+    <div class="category-show-top">
+      <div class="category-show-left">
+      <%= link_to image_tag("back.png", :class => "buttons"), :back %> 
+      <%= link_to image_tag("home.png", :class => "buttons"), "/" %> 
+      <% if @task.favorite == true %>
+        <%= image_tag("favorite.png", :class => "buttons") %>
+      <% else %>
+         <%= image_tag("unfave.png", :class => "buttons") %>
+      <% end %>
+      </div>
+      <div class="category-show-middle"> <%= @task.title %> </div>
+      <div class="category-show-right">
+        <% if @task.fin == false %>
+          <%= image_tag("check.png", :class => "buttons") %>
+        <% else %>
+          <%= image_tag("uncheck.png", :class => "buttons") %>
+        <% end %>
+        <%= link_to image_tag("add.png", :class => "buttons"), new_task_path %>
+        <%= link_to image_tag("edit.png", :class => "buttons"), edit_task_path %>
+        <%= link_to image_tag("delete.png", :class => "buttons"), @task, method: :delete  %>
         <%= link_to image_tag("logout.png", :class => "buttons"), destroy_user_session_path, method: :get %>
       </div>
     </div>
     <div class="task-id-bottom">
-      <div class="task-id-list">
-        <div class="task-title"> <%= @task.title %> </div>
+      <div class="task-detail-list">
         <div class="task-details"> <%= @task.details %> </div>
-        <div class="task-id-parts">
-          <div class="task-due"> <%= @task.due %> </div>
-          <div class="task-created"> <%= @task.created_at %> </div>
-          <div class="task-fin"> <%= @task.fin %> </div>
-        </div>
-
+        <div class="task-created-red"> Due Date: <%= @task.due.to_time.strftime('%B %e %Y') %> </div>
+        <div class="task-created"> Created At: <%= @task.created_at.to_time.strftime('%B %e at %l:%M %p') %> </div>
       </div>
     </div>
 </div>

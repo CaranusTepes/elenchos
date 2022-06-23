@@ -1,3 +1,16 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
 
 .icon {
   height: 70px;
@@ -31,7 +44,17 @@
   font-family: 'Work Sans', sans-serif;
 }
 .password {
+  padding: 5px 15px 0px 15px;
+}
+
+.password-confirmation {
   padding: 5px 15px 10px 15px;
+}
+
+.pass-length {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  color: #DFF6FF;
 }
 
 .passLabel {
@@ -86,15 +109,30 @@
   width: inherit;
 }
 
-.sup:link, .for:link, .sup:visited, .for:visited {
+.new-links {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: inherit;
+}
+
+.sup:link, .for:link, .sup:visited, .for:visited, .log:link, .log:visited {
   text-decoration: none;
   color: #DFF6FF;
   font-size: 11px;
   font-family: 'Inter', sans-serif;
 }
 
-.sup:hover, .for:hover {
+.sup:hover, .for:hover, .log:hover {
   text-decoration: none;
   color: #1363DF;
+  font-family: 'Inter', sans-serif;
+}
+
+.forgot-header {
+  font-size: 17px;
+  font-weight: bold;
+  color: #DFF6FF;
+  margin: 10px 0px 10px 0px;
   font-family: 'Inter', sans-serif;
 }

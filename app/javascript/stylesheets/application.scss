@@ -6,24 +6,14 @@
  *= require_tree .
  *= require_self
  */
+ 
 @import "login";
 @import "homepage";
 @import "category";
+@import "task";
 
 body {
   background-color: #06283D;
-}
-
-.body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 33%;
-  position: absolute;
-  margin: 300px auto;
-  left: 0;
-  right: 0;
 }
 
 textarea:focus, input:focus{
@@ -60,13 +50,41 @@ textarea:focus, input:focus{
   width: 25%;
   height: 50px;
   position: absolute;
-  margin: auto;
+  margin: 30px auto;
   left: 0;
   right: 0;
   border-radius: 10px;
   border-color: #6BAA8B;
   font-weight: bold;
   font-family: 'Inter', sans-serif;
+}
+
+.alert-error {
+  text-align: center;
+  background-color: #F8AEAE;
+  color: #A6696E;
+  width: 400px;
+  padding: 10px;
+  position: absolute;
+  margin: 30px auto;
+  top: 0;
+  border-radius: 10px;
+  border-color: #A6696E;
+  font-family: 'Inter', sans-serif;
+}
+
+.error-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.error-title-up {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.error-message {
+  font-size: 12px;
 }
 
 // Show Specific Category

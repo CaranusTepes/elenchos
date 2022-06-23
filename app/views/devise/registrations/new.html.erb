@@ -1,31 +1,32 @@
-<div>
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="body">
   <%= render "devise/shared/error_messages", resource: resource %>
+  <%= image_tag "e.png", class: "icon"%>
+  <h2 class="header">Sign up</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="email">
+        <%= f.label :email, class: "emailLabel" %><br />
+        <%= f.email_field :email, class: "emailInput", autofocus: true, autocomplete: "email" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="password">
+        <%= f.label :password, class: "passLabel" %>
+        <% if @minimum_password_length %>
+        <em class="pass-length">(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, class: "passInput", autocomplete: "new-password" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      <div class="password-confirmation">
+        <%= f.label :password_confirmation, class: "passLabel" %><br />
+        <%= f.password_field :password_confirmation, class: "passInput", autofocus: true, autocomplete: "new-password" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-  <%= render "devise/shared/links" %>
-<% end %>
-
+      <div class="submit">
+        <%= f.submit "Register", class: "button" %>
+      </div>
+    <% end %>
+    <div class="new-links"> 
+      <a href="/users/sign_in" class="log">Log in</a>
+    </div>
 </div>
+

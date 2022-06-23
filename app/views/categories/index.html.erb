@@ -1,20 +1,23 @@
 <div class="category-show">
   <% if user_signed_in? %>
     <div class="category-show-top">
-      <div class="category-show-left"> <%= current_user.email %> </div>
+      <div class="category-show-left">
+      <%= link_to image_tag("back.png", :class => "buttons"), :back %> 
+      <%= link_to image_tag("home.png", :class => "buttons"), "/" %> 
+      </div>
       <div class="category-show-middle"> All Categories </div>
       <div class="category-show-right">
-        <%= link_to image_tag "setting.png", class: "buttons"%>
+        <%= link_to image_tag("add.png", :class => "buttons"), new_category_path %>
+        <%= link_to image_tag("setting.png", :class => "buttons") %>
         <%= link_to image_tag("logout.png", :class => "buttons"), destroy_user_session_path, method: :get %>
       </div>
     </div>
     <div class="category-show-bottom">
       <% @categories.each do |categories| %>
       <div class="category-show-list">
-        <div class="header-title"> <%= categories.title %> </div>
+        <div class="header-title"> <%= link_to categories.title, category_path(categories.id), :class => "header-title-text" %></div>
         <div class="header-author"> <%= categories.details %> </div>
-        <div class="header-taks-count"> <%=  %> </div>
-        <div class="header-created"> <%= categories.created_at %> </div>
+        <div class="header-created"> <%= categories.created_at.to_time.strftime('%B %e at %l:%M %p') %> </div>
       </div>
       <% end %>
     </div>

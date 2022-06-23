@@ -1,0 +1,32 @@
+.task-id-bottom {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  height: 90vh;
+  align-items: center;
+}
+.task-detail-list {
+  color: #dff6ff;
+  width: 100%;
+}
+
+.task-details  {
+  color: #dff6ff;
+  font-size: 20px;
+  height: 60vh;
+  border-bottom: 1px solid white;
+}
+
+.task-created-red {
+  color: #A6696E;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.task-created {
+  color: #dff6ff;
+  font-size: 15px;
+  font-style: italic;
+}

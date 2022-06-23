@@ -1,7 +1,8 @@
 <div class="home">
   <% if user_signed_in? %>
     <div class="home-left">
-      <div class="left-header"> <%= current_user.email %> </div>
+      <div class="left-header"><%= current_user.email %></div>
+      <%# STILL UNDER DEVELOPMENT %>
       <div class="left-important">
         <div class="today">Today</div>
         <div class="upcoming">Upcoming</div>
@@ -9,41 +10,76 @@
         <div class="deleted">Deleted</div>
       </div>
       <div class="left-categories">
-          <a href="/categories"><div class="home-categories-list-title">All categories</div></a>
+          <a href="/categories" class="home-categories-list-title">All categories</a>
         <% @categories.each do |categories| %>
           <div>
-            <div class="home-categories-list"><%= categories.title %></div>
+            <div class="home-categories-list"><%= link_to categories.title, category_path(categories.id) %></div>
           </div>
         <% end %>
       </div>
     </div>
     <div class="home-middle">
       <div class="middle-header">
-        <%= link_to image_tag "setting.png", class: "buttons"%>
-        <%= link_to image_tag("logout.png", :class => "buttons"), destroy_user_session_path, method: :get %>
+        <div class="progress">
+          <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
       </div>
       <div class="middle-today"> 
         <div class="middle-title">Today Tasks</div>
+        <div class="middle-list-header">
+          <div class="list-title"> Title </div>
+          <div class="list-details"> Details </div>
+          <div class="list-due"> Due Date </div>
+        </div>
         <div class="middle-list">
           <% @tasks.each do |tasks| %>
           <% if tasks.due == Date.current %>
-              <div><%= tasks.title %></div>
-              <div><%= tasks.details %></div>
-              <div><%= tasks.due %></div>
+          <div class="mlist">
+              <div class="list-title"><%= tasks.title %></div>
+              <div class="list-details"><%= tasks.details %></div>
+              <div class="list-due"><%= tasks.due %></div>
+          </div>
           <% end %>
           <% end %>
         </div>
       </div>
       <div class="middle-upcoming">
         <div class="middle-title">Upcoming Tasks</div>
+        <div class="middle-list-header">
+          <div class="list-title"> Title </div>
+          <div class="list-details"> Details </div>
+          <div class="list-due"> Due Date </div>
+        </div>
         <div class="middle-list">
         <% @tasks.each do |tasks| %>
           <% if tasks.due > Date.current %>
-              <div><%= tasks.title   %></div>
-              <div><%= tasks.details   %></div>
-              <div><%= tasks.due %></div>
+            <div class="mlist">
+              <div class="list-title"><%= tasks.title   %></div>
+              <div class="list-details"><%= tasks.details   %></div>
+              <div class="list-due"><%= tasks.due %></div>
+              </div>
           <% end %>
         <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="home-right">
+      <div class="right-header">
+        <%= link_to image_tag "setting.png", class: "buttons"%>
+        <%= link_to image_tag("logout.png", :class => "buttons"), destroy_user_session_path, method: :get %>
+      </div>
+      <div class="right-list">
+        <div class="right-list-box">
+          <% @favorites.each do |tasks|%>
+            <div class="favorite-title"><%= tasks.title %></div>
+            <div class="favorite-details"><%= tasks.details %></div>
+            <div class="favorite-end">
+              <div class="favorite-due"><%= tasks.due %></div>
+              <div class="favorite-favorite">
+                <%= image_tag("favorite.png", :class => "favorite-button")%>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
